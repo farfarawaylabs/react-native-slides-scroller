@@ -1,5 +1,7 @@
 package com.example.farfarawaylabsreactnativeslidesscroller;
 
+import com.facebook.react.bridge.JSIModulePackage;
+import com.swmansion.reanimated.ReanimatedJSIModulePackage;
 import android.app.Application;
 import android.content.Context;
 import com.facebook.react.PackageList;
@@ -26,7 +28,7 @@ public class MainApplication extends Application implements ReactApplication {
           List<ReactPackage> packages = new PackageList(this).getPackages();
           // Packages that cannot be autolinked yet can be added manually here, for ReactNativeSlidesScrollerExample:
           // packages.add(new MyReactNativePackage());
-          
+
           return packages;
         }
 
@@ -34,6 +36,11 @@ public class MainApplication extends Application implements ReactApplication {
         protected String getJSMainModuleName() {
           return "index";
         }
+
+        @Override
+        protected JSIModulePackage getJSIModulePackage() {
+          return new ReanimatedJSIModulePackage();
+      }
       };
 
   @Override

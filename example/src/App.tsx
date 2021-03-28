@@ -1,18 +1,14 @@
 import * as React from 'react';
 
-import { StyleSheet, View, Text } from 'react-native';
-import ReactNativeSlidesScroller from '@farfarawaylabs/react-native-slides-scroller';
+import { StyleSheet, View } from 'react-native';
+import { Scroller } from '@farfarawaylabs/react-native-slides-scroller';
+
+import { items } from './Model';
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
-
-  React.useEffect(() => {
-    ReactNativeSlidesScroller.multiply(3, 7).then(setResult);
-  }, []);
-
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      <Scroller items={items} />
     </View>
   );
 }
@@ -20,12 +16,5 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  box: {
-    width: 60,
-    height: 60,
-    marginVertical: 20,
   },
 });
